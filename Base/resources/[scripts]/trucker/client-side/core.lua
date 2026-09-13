@@ -10,6 +10,10 @@ vRP = Proxy.getInterface("vRP")
 vSERVER = Tunnel.getInterface("trucker")
 vGARAGE = Tunnel.getInterface("garages")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Blip = nil
@@ -159,7 +163,7 @@ CreateThread(function()
 				if Distance <= 200 then
 					TimeDistance = 1
 					DrawMarker(1,Delivery[Service]["Coords"][Position]["x"],Delivery[Service]["Coords"][Position]["y"],Delivery[Service]["Coords"][Position]["z"] - 3,0,0,0,0,0,0,12.0,12.0,8.0,255,255,255,25,0,0,0,0)
-					DrawMarker(21,Delivery[Service]["Coords"][Position]["x"],Delivery[Service]["Coords"][Position]["y"],Delivery[Service]["Coords"][Position]["z"] + 1,0,0,0,0,180.0,130.0,3.0,3.0,2.0,88,101,242,175,0,0,0,1)
+					DrawMarker(21,Delivery[Service]["Coords"][Position]["x"],Delivery[Service]["Coords"][Position]["y"],Delivery[Service]["Coords"][Position]["z"] + 1,0,0,0,0,180.0,130.0,3.0,3.0,2.0,RColor,GColor,BColor,175,0,0,0,1)
 
 					if Distance <= 10 then
 						if Position >= #Delivery[Service]["Coords"] then

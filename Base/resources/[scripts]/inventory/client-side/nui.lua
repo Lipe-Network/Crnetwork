@@ -1,4 +1,8 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Drops = {}
@@ -356,7 +360,7 @@ CreateThread(function()
 
 						if (First * First + Second * Second + Third * Third) <= (DistanceDrops * DistanceDrops) then
 							SetDrawOrigin(DropCoords.x,DropCoords.y,DropCoords.z - 0.75)
-							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 							ClearDrawOrigin()
 
 							TimeDistance = 1

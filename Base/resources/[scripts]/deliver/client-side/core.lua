@@ -7,6 +7,10 @@ local Tunnel = module("vrp","lib/Tunnel")
 -----------------------------------------------------------------------------------------------------------------------------------------
 vINVENTORY = Tunnel.getInterface("inventory")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Blip = nil
@@ -75,7 +79,7 @@ AddEventHandler("deliver:Init",function(Service)
 					if Distance <= 10.0 then
 						TimeDistance = 1
 						SetDrawOrigin(SelectedCoords.x,SelectedCoords.y,SelectedCoords.z)
-						DrawSprite("Textures","H",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+						DrawSprite("Textures","H",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 						ClearDrawOrigin()
 
 						if Distance <= 1.0 and IsControlJustPressed(1,74) and vINVENTORY.Deliver(Worked,SelectedCoords) then

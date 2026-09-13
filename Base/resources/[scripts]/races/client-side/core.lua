@@ -9,6 +9,10 @@ Creative = {}
 Tunnel.bindInterface("races",Creative)
 vSERVER = Tunnel.getInterface("races")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Object = {}
@@ -73,7 +77,7 @@ CreateThread(function()
 				local Distance = #(Coords - InitCoords.xyz)
 
 				if Distance <= 25 then
-					DrawMarker(23,InitCoords.x,InitCoords.y,InitCoords.z - 0.35,0,0,0,0,0,0,10.0,10.0,10.0,88,101,242,175,false,false,0,false)
+					DrawMarker(23,InitCoords.x,InitCoords.y,InitCoords.z - 0.35,0,0,0,0,0,0,10.0,10.0,10.0,RColor,GColor,BColor,175,false,false,0,false)
 					TimeDistance = 0
 
 					if Distance <= 5 and IsControlJustPressed(1,38) and vSERVER.Runners(Selected) then

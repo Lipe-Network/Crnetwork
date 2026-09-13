@@ -9,6 +9,10 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 vSERVER = Tunnel.getInterface("target")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Code = {}
@@ -512,7 +516,7 @@ function TargetEnable()
 		for Index,v in pairs(Zones) do
 			if #(Coords - Zones[Index].center) <= 5 then
 				SetDrawOrigin(Zones[Index].center.x,Zones[Index].center.y,Zones[Index].center.z)
-				DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+				DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 				ClearDrawOrigin()
 			end
 
@@ -534,7 +538,7 @@ function TargetEnable()
 					end
 
 					SetDrawOrigin(Zones[Index].center.x,Zones[Index].center.y,Zones[Index].center.z)
-					DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+					DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 					ClearDrawOrigin()
 
 					local Ped = PlayerPedId()
@@ -830,7 +834,7 @@ function TargetEnable()
 						local CenterWorld = GetOffsetFromEntityInWorldCoords(Entitys,CenterOffset.x,CenterOffset.y,CenterOffset.z)
 
 						SetDrawOrigin(CenterWorld.x,CenterWorld.y,CenterWorld.z)
-						DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+						DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 						ClearDrawOrigin()
 					end
 
@@ -854,7 +858,7 @@ function TargetEnable()
 							local CenterWorld = GetOffsetFromEntityInWorldCoords(Entitys,CenterOffset.x,CenterOffset.y,CenterOffset.z)
 
 							SetDrawOrigin(CenterWorld.x,CenterWorld.y,CenterWorld.z)
-							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 							ClearDrawOrigin()
 
 							local Ped = PlayerPedId()
@@ -885,7 +889,7 @@ function TargetEnable()
 						local OtherCoords = GetEntityCoords(Entitys)
 						if #(Coords - OtherCoords) <= 5 then
 							SetDrawOrigin(OtherCoords.x,OtherCoords.y,OtherCoords.z + 1)
-							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+							DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 							ClearDrawOrigin()
 						end
 
@@ -920,7 +924,7 @@ function TargetEnable()
 								local EntityCoords = GetEntityCoords(Entitys)
 
 								SetDrawOrigin(EntityCoords.x,EntityCoords.y,EntityCoords.z + 1)
-								DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+								DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 								ClearDrawOrigin()
 
 								local Ped = PlayerPedId()

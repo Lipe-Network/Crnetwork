@@ -1,4 +1,8 @@
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- MODELEXIST
 -----------------------------------------------------------------------------------------------------------------------------------------
 function tvRP.ModelExist(Hash)
@@ -192,9 +196,10 @@ exports("ReloadCharacter",function()
 	SetRandomEventFlag(false)
 	SetWeaponsNoAutoswap(true)
 	SetBlipAlpha(GetNorthRadarBlip(),0)
-	ReplaceHudColourWithRgba(116,88,101,242,225)
-	ReplaceHudColourWithRgba(140,88,101,242,150)
-	ReplaceHudColourWithRgba(142,88,101,242,225)
+
+	ReplaceHudColourWithRgba(116,RColor,GColor,BColor,225)
+	ReplaceHudColourWithRgba(140,RColor,GColor,BColor,150)
+	ReplaceHudColourWithRgba(142,RColor,GColor,BColor,225)
 
 	SetAudioFlag("ActivateSwitchWheelAudio",false)
 	SetAudioFlag("AllowAmbientSpeechInSlowMo",false)

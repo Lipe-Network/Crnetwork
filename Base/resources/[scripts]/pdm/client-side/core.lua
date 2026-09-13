@@ -7,6 +7,10 @@ local Tunnel = module("vrp","lib/Tunnel")
 -----------------------------------------------------------------------------------------------------------------------------------------
 vSERVER = Tunnel.getInterface("pdm")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Lasted = ""
@@ -133,8 +137,8 @@ RegisterNUICallback("Mount",function(Data,Callback)
 		end
 
 		Preview = CreateVehicle(Model,Config[Selected].Spawn,false,false)
-		SetVehicleCustomSecondaryColour(Preview,88,101,242)
-		SetVehicleCustomPrimaryColour(Preview,88,101,242)
+		SetVehicleCustomSecondaryColour(Preview,RColor,GColor,BColor)
+		SetVehicleCustomPrimaryColour(Preview,RColor,GColor,BColor)
 		SetVehicleNumberPlateText(Preview,"PDMSPORT")
 		SetEntityCollision(Preview,false,false)
 		FreezeEntityPosition(Preview,true)
@@ -193,8 +197,8 @@ RegisterNUICallback("Drive", function(Data, Callback)
 	SetEntityInvincible(Preview,true)
 	SetPedIntoVehicle(PlayerPedId(),Preview,-1)
 	SetVehicleNumberPlateText(Preview,"PDMSPORT")
-	SetVehicleCustomPrimaryColour(Preview,88,101,242)
-	SetVehicleCustomSecondaryColour(Preview,88,101,242)
+	SetVehicleCustomPrimaryColour(Preview,RColor,GColor,BColor)
+	SetVehicleCustomSecondaryColour(Preview,RColor,GColor,BColor)
 
 	for _,Type in ipairs({ 11,12,13,15 }) do
 		SetVehicleMod(Preview,Type,GetNumVehicleMods(Preview,Type) - 1,false)

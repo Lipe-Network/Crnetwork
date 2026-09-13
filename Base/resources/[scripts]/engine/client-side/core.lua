@@ -10,6 +10,10 @@ vRP = Proxy.getInterface("vRP")
 vSERVER = Tunnel.getInterface("engine")
 vFUELSTATION = Tunnel.getInterface("fuelstations")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Price = 0
@@ -173,7 +177,7 @@ AddEventHandler("engine:Supply",function(Entitys)
 
 		local Consume = VehicleFuel - Lasted
 		SetDrawOrigin(Coords.x,Coords.y,Coords.z)
-		DrawSprite("Textures","E",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+		DrawSprite("Textures","E",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 		ClearDrawOrigin()
 
 		if not IsEntityPlayingAnim(Ped,"timetable@gardener@filling_can","gar_ig_5_filling_can",3) and LoadAnim("timetable@gardener@filling_can") then

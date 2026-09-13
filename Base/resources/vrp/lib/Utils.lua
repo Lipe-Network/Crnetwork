@@ -466,3 +466,15 @@ function ConvertStringToTable(String)
 
 	return Result
 end
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- HEXTORGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+function HexToRGB(HEX)
+	HEX = HEX:gsub("#","")
+
+	local RColor = tonumber(HEX:sub(1,2),16)
+	local GColor = tonumber(HEX:sub(3,4),16)
+	local BColor = tonumber(HEX:sub(5,6),16)
+
+	return RColor,GColor,BColor
+end

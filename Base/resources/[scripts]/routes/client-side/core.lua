@@ -9,6 +9,10 @@ vRP = Proxy.getInterface("vRP")
 -----------------------------------------------------------------------------------------------------------------------------------------
 vSERVER = Tunnel.getInterface("routes")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Blip = nil
@@ -122,7 +126,7 @@ CreateThread(function()
 				if Distance <= 10.0 then
 					TimeDistance = 1
 					SetDrawOrigin(Initial[Progress]["Coords"][Selectedz]["x"],Initial[Progress]["Coords"][Selectedz]["y"],Initial[Progress]["Coords"][Selectedz]["z"])
-					DrawSprite("Textures","H",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,88,101,242,255)
+					DrawSprite("Textures","H",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
 					ClearDrawOrigin()
 
 					if Distance <= 1.0 and IsControlJustPressed(1,74) and vSERVER.Deliver() then

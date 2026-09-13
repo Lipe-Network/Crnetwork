@@ -11,6 +11,10 @@ Creative = {}
 Tunnel.bindInterface("garages",Creative)
 vSERVER = Tunnel.getInterface("garages")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIAVEIS
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Respawns = {}
@@ -471,7 +475,7 @@ CreateThread(function()
 				local Distance = #(Coords - vec3(v.x,v.y,v.z))
 				if Distance <= 5.0 then
 					TimeDistance = 1
-					DrawMarker(23,v.x,v.y,v.z - 0.95,0.0,0.0,0.0,0.0,0.0,0.0,1.75,1.75,0.0,88,101,242,175,0,0,0,0)
+					DrawMarker(36,v.x,v.y,v.z,0.0,0.0,0.0,0.0,0.0,0.0,1.75,1.75,1.75,RColor,GColor,BColor,175,0,0,0,1)
 
 					if Distance <= 1.25 and IsControlJustPressed(1,38) and not exports.hud:Wanted() and not exports["lb-phone"]:IsOpen() then
 						local Vehicles = vSERVER.Vehicles(Number)
@@ -491,7 +495,8 @@ CreateThread(function()
 				local Distance = #(Coords - v.xyz)
 				if Distance <= 25.0 then
 					TimeDistance = 1
-					DrawMarker(36,v.x,v.y,v.z,0.0,0.0,0.0,0.0,0.0,0.0,1.75,1.75,1.75,88,101,242,175,0,0,0,1)
+					DrawMarker(36,v.x,v.y,v.z,0.0,0.0,0.0,0.0,0.0,0.0,1.75,1.75,1.75,RColor,GColor,BColor,175,0,0,0,1)
+					DrawMarker(23,v.x,v.y,v.z - 0.95,0.0,0.0,0.0,0.0,0.0,0.0,1.75,1.75,0.0,RColor,GColor,BColor,175,0,0,0,0)
 
 					if Distance <= 1.25 and IsControlJustPressed(1,38) and Spam <= GetGameTimer() then
 						Spam = GetGameTimer() + 5000

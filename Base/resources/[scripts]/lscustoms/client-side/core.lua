@@ -11,6 +11,10 @@ Creative = {}
 Tunnel.bindInterface("lscustoms",Creative)
 vSERVER = Tunnel.getInterface("lscustoms")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
 local Initial = {}
@@ -705,10 +709,20 @@ CreateThread(function()
 						if #(Coords - v["Coords"]["xyz"]) <= 2.5 then
 							TimeDistance = 1
 
-							if IsControlJustPressed(1,38) and vSERVER.Permission(Index) then
-								SetEntityCoordsNoOffset(Vehicle,v["Coords"]["xyz"])
-								SetEntityHeading(Vehicle,v["Coords"]["w"])
-								Open(Vehicle,v["Logo"])
+							if Distance <= 1.25 then
+								SetDrawOrigin(v["Coords"]["xyz"])
+								DrawSprite("Textures","E",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
+								ClearDrawOrigin()
+
+								if IsControlJustPressed(1,38) and vSERVER.Permission(Index) then
+									SetEntityCoordsNoOffset(Vehicle,v["Coords"]["xyz"])
+									SetEntityHeading(Vehicle,v["Coords"]["w"])
+									Open(Vehicle,v["Logo"])
+								end
+							else
+								SetDrawOrigin(v["Coords"]["xyz"])
+								DrawSprite("Textures","Normal",0.0,0.0,0.0185,0.0185 * GetAspectRatio(false),0.0,RColor,GColor,BColor,255)
+								ClearDrawOrigin()
 							end
 						end
 					end

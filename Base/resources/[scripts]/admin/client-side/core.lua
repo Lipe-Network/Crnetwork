@@ -9,6 +9,10 @@ Creative = {}
 Tunnel.bindInterface("admin",Creative)
 vSERVER = Tunnel.getInterface("admin")
 -----------------------------------------------------------------------------------------------------------------------------------------
+-- RGB
+-----------------------------------------------------------------------------------------------------------------------------------------
+local RColor,GColor,BColor = HexToRGB(Theme["main"])
+-----------------------------------------------------------------------------------------------------------------------------------------
 -- TELEPORTWAY
 -----------------------------------------------------------------------------------------------------------------------------------------
 function Creative.teleportWay()
@@ -132,8 +136,8 @@ RegisterCommand("configrace",function(_,Message)
 			Markers[Number] = { Left = Left, Right = Right, Blip = Blip }
 		end
 
-		DrawMarker(1,Left.x,Left.y,Left.z - 100,0,0,0,0,0,0,1.75,1.75,200.0,88,101,242,175,false,false,0,false)
-		DrawMarker(1,Right.x,Right.y,Right.z - 100,0,0,0,0,0,0,1.75,1.75,200.0,88,101,242,175,false,false,0,false)
+		DrawMarker(1,Left.x,Left.y,Left.z - 100,0,0,0,0,0,0,1.75,1.75,200.0,RColor,GColor,BColor,175,false,false,0,false)
+		DrawMarker(1,Right.x,Right.y,Right.z - 100,0,0,0,0,0,0,1.75,1.75,200.0,RColor,GColor,BColor,175,false,false,0,false)
 		DrawMarker(1,Center.x,Center.y,Center.z - 100,0,0,0,0,0,0,0.75,0.75,200.0,255,255,255,25,false,false,0,false)
 
 		for _,v in pairs(Markers) do
